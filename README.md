@@ -113,7 +113,7 @@ Projekt wykorzystuje potężne biblioteki do obsługi danych i plików:
 
 
 
-# 4. Auto-Segregator Plików `Segregator podstawowych plików.py`
+# 4. Auto-Segregator Plików (`Segregator podstawowych plików.py`)
 
 Prosty i skuteczny skrypt w języku Python służący do automatycznego porządkowania bałaganu w wybranym folderze. Program skanuje pliki i rozdziela je do odpowiednich podfolderów na podstawie ich rozszerzeń.
 
