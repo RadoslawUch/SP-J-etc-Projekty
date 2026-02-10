@@ -1,15 +1,14 @@
 import sys
 
 def Wylicz():
-        n_str = sys.stdin.readline().strip()
-        if not n_str:
-            return
-
-        n = int(n_str)
-        for _ in range(n):
-            dzialanie = sys.stdin.readline().strip()
-            if dzialanie:
-                print(eval(dzialanie))
+    for dzialanie in sys.stdin:
+        dzialanie = dzialanie.strip()
+        if not dzialanie:
+            continue
+        try:
+            print(eval(dzialanie))
+        except:
+            pass
 
 if __name__ == "__main__":
     Wylicz()

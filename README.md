@@ -1,4 +1,4 @@
-# System Pracowniczy
+# 1. System Pracowniczy (`RegLog.py`)
 
 Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy.
 
@@ -15,9 +15,10 @@ Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy
 
 
 
-#  Klasyczny Saper
+#  2. Klasyczny Saper (`Saper.py`)
 
-W pełni funkcjonalna, graficzna wersja gry Saper zbudowana w języku Python przy użyciu biblioteki **Tkinter**. Projekt odwzorowuje klasyczną mechanikę znaną z systemów Windows, oferując intuicyjny interfejs i trzy poziomy trudności.
+W pełni funkcjonalna, graficzna wersja gry Saper zbudowana w języku Python przy użyciu biblioteki **Tkinter**. 
+Projekt odwzorowuje klasyczną mechanikę znaną z systemów Windows, oferując intuicyjny interfejs i trzy poziomy trudności.
 
 
 ##  Funkcjonalności
@@ -25,7 +26,7 @@ W pełni funkcjonalna, graficzna wersja gry Saper zbudowana w języku Python prz
 * **Interaktywny interfejs**: Klasyczny wygląd z licznikiem pozostałych min oraz cyfrowym stoperem.
 * **Mechanika gry**:
     * **Lewy przycisk myszy**: Odkrywanie pól.
-    * **Prawy przycisk myszy**: Oznaczanie min flagami 🚩.
+    * **Prawy przycisk myszy**: Oznaczanie min flagami.
     * **Automatyczne odkrywanie**: Funkcja "flood fill" automatycznie otwiera puste obszary bez min.
 * **System poziomów**: Możliwość zmiany trudności w trakcie gry poprzez menu górne.
 * **Zabezpieczenia**: Program uniemożliwia przypadkowe kliknięcie odkrytego pola lub pola z flagą.
@@ -61,3 +62,141 @@ Projekt został stworzony z wykorzystaniem standardowych bibliotek Pythona:
 * **🙂**: Nowa gra / Reset.
 * **😵**: Koniec gry (trafienie na minę).
 * **😎**: Wygrana!
+
+
+
+
+
+
+# 3. Generator Kart Mieszkań ( `GeneratorPDF.py`)
+
+Prosta aplikacja do automatycznego generowania dokumentów PDF na podstawie danych zawartych w arkuszu Excel. Skrypt idealnie nadaje się do szybkiego tworzenia ustandaryzowanych kart informacyjnych dla wielu obiektów jednocześnie.
+
+
+## Funkcjonalności
+
+* **Import danych z Excela**: Automatyczne wczytywanie informacji z pliku `Dane.xlsx`.
+* **Generowanie PDF**: Tworzenie osobnego pliku PDF dla każdego wiersza w arkuszu.
+* **Formatowanie tekstu**: Każdy dokument posiada wyśrodkowany nagłówek oraz listę parametrów mieszkania.
+* **Obsługa polskich znaków**: Wykorzystanie systemowej czcionki Arial do poprawnego wyświetlania treści.
+* **Oczyszczanie danych**: Automatyczne usuwanie pustych kolumn ("Unnamed") z arkusza podczas przetwarzania.
+
+
+## Jak to działa
+
+1. Program szuka pliku o nazwie `Dane.xlsx` w swoim folderze.
+2. Odczytuje każdą kolumnę (np. Powierzchnia, Piętro, Liczba pokoi).
+3. Tworzy pliki o nazwach `Mieszkanie_1.pdf`, `Mieszkanie_2.pdf` itd.
+
+
+## Technologie
+
+Projekt wykorzystuje potężne biblioteki do obsługi danych i plików:
+* **Pandas**: Służy do odczytu i strukturyzowania danych z arkuszy kalkulacyjnych.
+* **fpdf2**: Biblioteka umożliwiająca generowanie dokumentów PDF w Pythonie.
+* **OS**: Zarządzanie ścieżkami plików i lokalizacją folderu roboczego.
+
+
+## Jak uruchomić
+
+- Wymagany Python 3.x.
+- Zainstaluj biblioteki: `pip install pandas fpdf2 openpyxl`.
+- Upewnij się, że plik `Dane.xlsx` znajduje się w tym samym folderze.
+- Uruchom plik główny:
+`GeneratorPDF.py`
+
+
+## Podgląd Wyjścia
+
+* **KARTA MIESZKANIA NR X**: Nagłówek dokumentu.
+* **Dane**: Wszystkie pary Kolumna: Wartość przeniesione prosto z Excela.
+
+
+
+# 4. Auto-Segregator Plików `Segregator podstawowych plików.py`
+
+Prosty i skuteczny skrypt w języku Python służący do automatycznego porządkowania bałaganu w wybranym folderze. Program skanuje pliki i rozdziela je do odpowiednich podfolderów na podstawie ich rozszerzeń.
+
+
+## Funkcjonalności
+
+* **Automatyczne sortowanie**: Rozpoznaje typy plików i przenosi je do dedykowanych folderów (np. Obrazy, Dokumenty).
+* **Bezpieczeństwo**: Skrypt automatycznie ignoruje samego siebie podczas sprzątania, aby zapobiec przeniesieniu kodu źródłowego.
+* **Dynamiczne tworzenie folderów**: Jeśli folder docelowy (np. "Arkusze_Excel") nie istnieje, program stworzy go automatycznie.
+* **Obsługa błędów**: System raportuje w konsoli każde udane przeniesienie lub ewentualny błąd dostępu do pliku.
+
+
+## Jak to działa
+
+Program posiada zdefiniowaną mapę rozszerzeń, która przypisuje pliki do konkretnych kategorii:
+* **Obrazy**: .jpg, .png, .gif, .svg itp.
+* **Dokumenty**: .pdf, .docx, .txt.
+* **Arkusze**: .xlsx, .csv.
+* **Aplikacje i skróty**: .exe, .msi, .url, .lnk.
+
+
+## Technologie
+
+Projekt opiera się na standardowych bibliotekach Pythona, co gwarantuje szybkość działania bez instalowania dodatków:
+* **OS**: Służy do skanowania zawartości folderów i zarządzania ścieżkami.
+* **Shutil**: Wykorzystywany do operacji przenoszenia plików między lokalizacjami.
+
+
+## Jak uruchomić
+
+- Wymagany Python 3.x.
+- Umieść skrypt w folderze, który chcesz posprzątać.
+- Uruchom plik główny:
+`Segregator podstawowych plików.py`
+
+
+## Podgląd Działania
+
+* **Przeniesiono: zdjęcie.jpg -> Obrazy**: Komunikat o sukcesie w konsoli.
+* **Zakończono**: Informacja o sfinalizowaniu porządków.
+
+
+
+
+# 5. Kalkulator Matematyczny (`Kalkulator.py`)
+
+Uproszczony kalkulator konsolowy stworzony w Pythonie. 
+Program pozwala na błyskawiczne obliczanie dowolnej liczby działań matematycznych bez konieczności deklarowania ich ilości na starcie.
+
+## Funkcjonalności
+
+* **Nielimitowane obliczenia**: Program działa w ciągłej pętli, pozwalając na wpisywanie kolejnych zadań bez przerwy.
+* **Odporność na błędy**: Dzięki zastosowaniu bloku `try-except`, błędnie wpisane działanie (np. niedokończone równanie) nie zawiesza programu.
+* **Bezpośrednie przetwarzanie**: Wykorzystuje funkcję `eval()` do natychmiastowej interpretacji tekstu jako operacji matematycznej.
+* **Czysty interfejs**: Brak zbędnych pytań o liczbę zestawów – wpisujesz i od razu widzisz wynik.
+
+## Jak to działa
+
+W przeciwieństwie do poprzednich wersji, ten program nie wymaga podawania liczby zadań na początku:
+1. Uruchom skrypt.
+2. Wpisz dowolne działanie (np. `2+2*2`) i naciśnij Enter.
+3. Program wyświetli wynik i od razu będzie gotowy na kolejne zadanie.
+
+
+
+## Technologie
+
+* **Python 3.x**: Główny język programowania.
+* **sys.stdin**: Służy do ciągłego odczytywania strumienia danych od użytkownika.
+* **Error Handling**: Mechanizm zapobiegający wyłączaniu się programu przy błędach składniowych.
+
+## Jak uruchomić
+
+- Wymagany Python 3.x.
+- Uruchom plik główny:
+`Kalkulator.py`
+
+## Przykład Działania
+
+```text
+5+5
+10
+12*3
+36
+100/2
+50
