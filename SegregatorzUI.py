@@ -9,11 +9,9 @@ class PortfolioApp:
         self.root.title("Python Portfolio - System Automatyzacji")
         self.root.geometry("900x550")
         
-        # Kolory Dashboardu
         self.menu_color = "#2c3e50"
         self.bg_color = "#ecf0f1"
         
-        # Główny podział
         self.sidebar = tk.Frame(self.root, bg=self.menu_color, width=220)
         self.sidebar.pack(side="left", fill="y")
         
@@ -60,7 +58,6 @@ class PortfolioApp:
         self.wyczysc_ekran()
         tk.Label(self.main_content, text="Inteligentny Porządkownik Plików", font=("Arial", 20, "bold"), bg=self.bg_color, fg="#2980b9").pack(pady=20)
         
-        # Kontener centralny
         ramka = tk.Frame(self.main_content, bg="white", padx=40, pady=40, highlightbackground="#bdc3c7", highlightthickness=1)
         ramka.pack(pady=20, padx=50, fill="x")
         
