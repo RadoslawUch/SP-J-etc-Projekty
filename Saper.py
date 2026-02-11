@@ -12,7 +12,7 @@ POZIOMY = {
 class Saper:
     def __init__(self, root):
         self.root = root
-        self.root.title("saper")
+        self.root.title("Saper Pro + Chording")
         self.root.configure(bg="#d9d9d9")
         
         self.ustawienia = POZIOMY["Trudny"]
@@ -22,6 +22,7 @@ class Saper:
         self.flagi = set()
         self.odkryte = set()
         self.koniec_gry = False
+        self.pierwszy_ruch = True 
         self.czas_startu = None
         self.id_stopera = None
         
@@ -71,18 +72,27 @@ class Saper:
             wiersz_przyciskow = []
             for c in range(self.kolumny):
                 btn = tk.Button(self.ramka_planszy, width=2, height=1, font=("Arial", 9, "bold"),
-                                relief="raised", bg="#d9d9d9",
-                                command=lambda r=r, c=c: self.klikniecie(r, c))
+                                relief="raised", bg="#d9d9d9")
+                
+                btn.config(command=lambda r=r, c=c: self.klikniecie(r, c))
                 btn.bind("<Button-3>", lambda e, r=r, c=c: self.postaw_flage(r, c))
+                btn.bind("<Double-Button-1>", lambda e, r=r, c=c: self.chording(r, c))
+                btn.bind("<Button-2>", lambda e, r=r, c=c: self.chording(r, c))
+                
                 btn.grid(row=r, column=c)
                 wiersz_przyciskow.append(btn)
             self.przyciski.append(wiersz_przyciskow)
 
-    def aktualizuj_stoper(self):
-        if self.czas_startu and not self.koniec_gry:
-            sekundy = int(time.time() - self.czas_startu)
-            self.etykieta_czasu.config(text=f"{min(sekundy, 9999):04d}")
-            self.id_stopera = self.root.after(1000, self.aktualizuj_stoper)
+    def generuj_miny(self, start_r, start_c):
+        bezpieczne = set()
+        for dr in [-1, 0, 1]:
+            for dc in [-1, 0, 1]:
+                bezpieczne.add((start_r + dr, start_c + dc))
+
+        mozliwe_pozycje = [(r, c) for r in range(self.wiersze) 
+                           for c in range(self.kolumny) if (r, c) not in bezpieczne]
+        
+        self.miny = set(random.sample(mozliwe_pozycje, self.liczba_min))
 
     def nowa_gra(self):
         if self.id_stopera:
@@ -91,14 +101,12 @@ class Saper:
         self.flagi.clear()
         self.odkryte.clear()
         self.koniec_gry = False
+        self.pierwszy_ruch = True
         self.czas_startu = None
         self.przycisk_reset.config(text="🙂")
         self.etykieta_min.config(text=f"{self.liczba_min:04d}")
         self.etykieta_czasu.config(text="0000")
         
-        pozycje = [(r, c) for r in range(self.wiersze) for c in range(self.kolumny)]
-        self.miny = set(random.sample(pozycje, self.liczba_min))
-
         for r in range(self.wiersze):
             for c in range(self.kolumny):
                 self.przyciski[r][c].config(text="", bg="#d9d9d9", relief="raised", state="normal")
@@ -107,7 +115,9 @@ class Saper:
         if self.koniec_gry or (r, c) in self.flagi or (r, c) in self.odkryte:
             return
         
-        if self.czas_startu is None:
+        if self.pierwszy_ruch:
+            self.pierwszy_ruch = False
+            self.generuj_miny(r, c)
             self.czas_startu = time.time()
             self.aktualizuj_stoper()
 
@@ -115,14 +125,16 @@ class Saper:
             self.przegrana()
         else:
             self.odkryj_pole(r, c)
-            if len(self.odkryte) == (self.wiersze * self.kolumny) - self.liczba_min:
-                self.wygrana()
+            self.sprawdz_wygrana()
 
     def odkryj_pole(self, r, c):
         if (r, c) in self.odkryte or (r, c) in self.flagi: return
+        
         self.odkryte.add((r, c))
         liczba = self.policz_sasiadow(r, c)
+        
         self.przyciski[r][c].config(relief="flat", bg="#bdbdbd", state="disabled")
+        
         kolory = ["", "blue", "green", "red", "darkblue", "darkred", "cyan", "black", "gray"]
         if liczba > 0:
             self.przyciski[r][c].config(text=str(liczba), disabledforeground=kolory[liczba])
@@ -132,6 +144,35 @@ class Saper:
                     nr, nc = r + dr, c + dc
                     if 0 <= nr < self.wiersze and 0 <= nc < self.kolumny:
                         self.odkryj_pole(nr, nc)
+
+    def chording(self, r, c):
+        """Odkrywa sąsiadów, jeśli liczba flag wokół zgadza się z cyfrą na polu."""
+        if (r, c) not in self.odkryte or self.koniec_gry:
+            return
+
+        liczba_min_wokol = self.policz_sasiadow(r, c)
+        if liczba_min_wokol == 0:
+            return
+
+        licznik_flag = 0
+        sasiedzi = []
+        for dr in [-1, 0, 1]:
+            for dc in [-1, 0, 1]:
+                if dr == 0 and dc == 0: continue
+                nr, nc = r + dr, c + dc
+                if 0 <= nr < self.wiersze and 0 <= nc < self.kolumny:
+                    sasiedzi.append((nr, nc))
+                    if (nr, nc) in self.flagi:
+                        licznik_flag += 1
+
+        if licznik_flag == liczba_min_wokol:
+            for nr, nc in sasiedzi:
+                if (nr, nc) not in self.flagi and (nr, nc) not in self.odkryte:
+                    if (nr, nc) in self.miny:
+                        self.przegrana()
+                        return
+                    self.odkryj_pole(nr, nc)
+            self.sprawdz_wygrana()
 
     def postaw_flage(self, r, c):
         if self.koniec_gry or (r, c) in self.odkryte: return
@@ -152,11 +193,21 @@ class Saper:
                     licznik += 1
         return licznik
 
+    def sprawdz_wygrana(self):
+        if len(self.odkryte) == (self.wiersze * self.kolumny) - self.liczba_min:
+            self.wygrana()
+
+    def aktualizuj_stoper(self):
+        if self.czas_startu and not self.koniec_gry:
+            sekundy = int(time.time() - self.czas_startu)
+            self.etykieta_czasu.config(text=f"{min(sekundy, 9999):04d}")
+            self.id_stopera = self.root.after(1000, self.aktualizuj_stoper)
+
     def przegrana(self):
         self.koniec_gry = True
         self.przycisk_reset.config(text="😵")
         for (r, c) in self.miny:
-            self.przyciski[r][c].config(text="💣", bg="red")
+            self.przyciski[r][c].config(text="💣", bg="red", state="normal")
 
     def wygrana(self):
         self.koniec_gry = True

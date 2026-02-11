@@ -15,40 +15,40 @@ Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy
 
 
 
-#  2. Klasyczny Saper (`Saper.py`)
+# 2. Saper Pro - Dokumentacja Projektu ( `Saper.py`)
 
-W pełni funkcjonalna, graficzna wersja gry Saper zbudowana w języku Python przy użyciu biblioteki **Tkinter**. 
-Projekt odwzorowuje klasyczną mechanikę znaną z systemów Windows, oferując intuicyjny interfejs i trzy poziomy trudności.
+Projekt klasycznej gry logicznej Saper, zaimplementowany w języku Python z wykorzystaniem biblioteki Tkinter. 
+Wersja ta zawiera zaawansowane mechanizmy poprawiające płynność rozgrywki i eliminujące błędy losowe.
 
+## Kluczowe Funkcje
 
-##  Funkcjonalności
+* **Logika Bezpiecznego Startu**: Gra generuje rozmieszczenie min dopiero po pierwszym kliknięciu użytkownika. System gwarantuje, że pole startowe oraz jego bezpośrednie sąsiedztwo (obszar 3x3) są wolne od min, co zawsze skutkuje otwarciem obszaru na początku gry.
+* **Mechanizm Chordingu**: Funkcja pozwalająca na szybkie odkrywanie pól sąsiadujących z cyfrą, jeśli wokół niej postawiono już odpowiednią liczbę flag.
+* **Automatyczne Odkrywanie (Auto-fill)**: Implementacja algorytmu rekurencyjnego, który natychmiastowo odkrywa puste obszary planszy aż do napotkania pól sąsiadujących z minami.
+* **Wbudowany Stoper i Licznik Min**: Monitorowanie czasu gry w sekundach oraz dynamiczne odliczanie pozostałych min na podstawie postawionych flag.
 
-* **Interaktywny interfejs**: Klasyczny wygląd z licznikiem pozostałych min oraz cyfrowym stoperem.
-* **Mechanika gry**:
-    * **Lewy przycisk myszy**: Odkrywanie pól.
-    * **Prawy przycisk myszy**: Oznaczanie min flagami.
-    * **Automatyczne odkrywanie**: Funkcja "flood fill" automatycznie otwiera puste obszary bez min.
-* **System poziomów**: Możliwość zmiany trudności w trakcie gry poprzez menu górne.
-* **Zabezpieczenia**: Program uniemożliwia przypadkowe kliknięcie odkrytego pola lub pola z flagą.
+## Obsługa i Sterowanie
 
+| Akcja | Sterowanie |
+| :--- | :--- |
+| Odkrycie pola | Lewy Przycisk Myszy (LPM) |
+| Postawienie flagi | Prawy Przycisk Myszy (PPM) |
+| Wykonanie Chordingu | Podwójny LPM lub Kółko Myszy |
+| Resetowanie gry | Przycisk resetu (środkowy panel górny) |
 
-##  Poziomy Trudności
+## Poziomy Trudności
 
-Gra oferuje trzy predefiniowane poziomy, które zmieniają wyzwanie:
+Gra oferuje trzy predefiniowane tryby dostępne w menu górnym:
 
-| Poziom | Siatka (Wiersze x Kolumny) | Liczba Min |
-| :--- | :--- | :--- |
-| **Łatwy** | 9 x 9 | 10 |
-| **Normalny** | 12 x 20 | 35 |
-| **Trudny** | 16 x 30 | 100 |
+1.  **Łatwy**: Plansza 9x9, 10 min.
+2.  **Normalny**: Plansza 12x20, 35 min.
+3.  **Trudny**: Plansza 16x30, 100 min.
 
+## Wymagania Techniczne
 
-##  Technologie
-
-Projekt został stworzony z wykorzystaniem standardowych bibliotek Pythona:
-* **Tkinter**: Odpowiada za warstwę wizualną i obsługę zdarzeń (okna, przyciski).
-* **Random**: Wykorzystywany do losowego rozmieszczania min na planszy.
-* **Time**: Obsługuje precyzyjne odmierzanie czasu gry.
+* **Środowisko**: Python 3.x
+* **Biblioteki**: Tkinter (standardowy moduł Pythona)
+* **System operacyjny**: Dowolny system obsługujący środowisko Python
 
 
 ## Jak uruchomić
