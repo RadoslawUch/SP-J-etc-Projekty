@@ -15,7 +15,7 @@ Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy
 
 
 
-# 2. Saper Pro - Dokumentacja Projektu ( `Saper.py`)
+# 2. Saper Pro ( `Saper.py`)
 
 Projekt klasycznej gry logicznej Saper, zaimplementowany w języku Python z wykorzystaniem biblioteki Tkinter. 
 Wersja ta zawiera zaawansowane mechanizmy poprawiające płynność rozgrywki i eliminujące błędy losowe.
@@ -113,52 +113,8 @@ Projekt wykorzystuje potężne biblioteki do obsługi danych i plików:
 
 
 
-# 4. Auto-Segregator Plików (`Segregator podstawowych plików.py`)
 
-Prosty i skuteczny skrypt w języku Python służący do automatycznego porządkowania bałaganu w wybranym folderze. Program skanuje pliki i rozdziela je do odpowiednich podfolderów na podstawie ich rozszerzeń.
-
-
-## Funkcjonalności
-
-* **Automatyczne sortowanie**: Rozpoznaje typy plików i przenosi je do dedykowanych folderów (np. Obrazy, Dokumenty).
-* **Bezpieczeństwo**: Skrypt automatycznie ignoruje samego siebie podczas sprzątania, aby zapobiec przeniesieniu kodu źródłowego.
-* **Dynamiczne tworzenie folderów**: Jeśli folder docelowy (np. "Arkusze_Excel") nie istnieje, program stworzy go automatycznie.
-* **Obsługa błędów**: System raportuje w konsoli każde udane przeniesienie lub ewentualny błąd dostępu do pliku.
-
-
-## Jak to działa
-
-Program posiada zdefiniowaną mapę rozszerzeń, która przypisuje pliki do konkretnych kategorii:
-* **Obrazy**: .jpg, .png, .gif, .svg itp.
-* **Dokumenty**: .pdf, .docx, .txt.
-* **Arkusze**: .xlsx, .csv.
-* **Aplikacje i skróty**: .exe, .msi, .url, .lnk.
-
-
-## Technologie
-
-Projekt opiera się na standardowych bibliotekach Pythona, co gwarantuje szybkość działania bez instalowania dodatków:
-* **OS**: Służy do skanowania zawartości folderów i zarządzania ścieżkami.
-* **Shutil**: Wykorzystywany do operacji przenoszenia plików między lokalizacjami.
-
-
-## Jak uruchomić
-
-- Wymagany Python 3.x.
-- Umieść skrypt w folderze, który chcesz posprzątać.
-- Uruchom plik główny:
-`Segregator podstawowych plików.py`
-
-
-## Podgląd Działania
-
-* **Przeniesiono: zdjęcie.jpg -> Obrazy**: Komunikat o sukcesie w konsoli.
-* **Zakończono**: Informacja o sfinalizowaniu porządków.
-
-
-
-
-# 5. Kalkulator Matematyczny (`Kalkulator.py`)
+# 4. Kalkulator Matematyczny (`Kalkulator.py`)
 
 Uproszczony kalkulator konsolowy stworzony w Pythonie. 
 Program pozwala na błyskawiczne obliczanie dowolnej liczby działań matematycznych bez konieczności deklarowania ich ilości na starcie.
@@ -202,7 +158,7 @@ W przeciwieństwie do poprzednich wersji, ten program nie wymaga podawania liczb
 
 
 
-# 6. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
+# 5. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
 
 Interaktywna aplikacja desktopowa zbudowana w języku Python, służąca do błyskawicznego porządkowania chaosu w folderach. Program automatycznie rozpoznaje typy plików i kategoryzuje je do odpowiednich podfolderów.
 
