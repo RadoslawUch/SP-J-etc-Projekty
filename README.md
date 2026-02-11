@@ -193,10 +193,43 @@ W przeciwieństwie do poprzednich wersji, ten program nie wymaga podawania liczb
 
 ## Przykład Działania
 
-```text
 5+5
 10
 12*3
 36
 100/2
 50
+
+
+
+# 6. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
+
+Interaktywna aplikacja desktopowa zbudowana w języku Python, służąca do błyskawicznego porządkowania chaosu w folderach. Program automatycznie rozpoznaje typy plików i kategoryzuje je do odpowiednich podfolderów.
+
+##  Kluczowe Funkcje
+
+* **Inteligentna Segregacja**: Obsługa ponad 50 rozszerzeń plików podzielonych na kategorie (Obrazy, Dokumenty, Archiwa, Filmy, Muzyka, Instalki, Programowanie).
+* **Bezpieczeństwo Danych**: Mechanizm "Inne" – pliki o nierozpoznanych rozszerzeniach nie są ignorowane ani usuwane, lecz bezpiecznie przenoszone do osobnego folderu.
+* **Intuicyjne UI**: Nowoczesny interfejs typu Dashboard stworzony w bibliotece Tkinter, zapewniający płynną nawigację.
+* **Odporność na Błędy**: Implementacja bloków `try-except` zapobiega awariom programu w przypadku napotkania plików systemowych lub zablokowanych.
+
+## ️ Technologie
+
+* **Python 3.x**
+* **Tkinter**: Warstwa wizualna i interfejs użytkownika.
+* **OS & Shutil**: Zaawansowane operacje na systemie plików i strumieniach danych.
+
+##  Instrukcja Obsługi
+
+1.  Uruchom aplikację: `SegregatorzUI.py`.
+2.  Przejdź do sekcji **SPRZĄTACZ** w panelu bocznym.
+3.  Kliknij przycisk **WYBIERZ FOLDER**.
+4.  Wybierz folder (np. "Pobrane" lub "Pulpit") i zatwierdź.
+5.  Gotowe! Program w ułamku sekundy stworzy strukturę folderów i poukłada Twoje pliki.
+
+##  Struktura Projektu
+
+Aplikacja została napisana w paradygmacie **programowania obiektowego (OOP)**, co zapewnia łatwą rozbudowę (np. o nowe kategorie rozszerzeń lub statystyki zajętości dysku).
+
+
+*Projekt stworzony jako demonstracja umiejętności z zakresu automatyzacji procesów biznesowych i tworzenia aplikacji GUI.*
