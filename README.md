@@ -95,53 +95,7 @@ Gra oferuje trzy predefiniowane tryby dostępne w menu górnym:
 
 
 
-# 4. Generator Kart Mieszkań ( `GeneratorPDF.py`)
-
-Prosta aplikacja do automatycznego generowania dokumentów PDF na podstawie danych zawartych w arkuszu Excel. Skrypt idealnie nadaje się do szybkiego tworzenia ustandaryzowanych kart informacyjnych dla wielu obiektów jednocześnie.
-
-
-## Funkcjonalności
-
-* **Import danych z Excela**: Automatyczne wczytywanie informacji z pliku `Dane.xlsx`.
-* **Generowanie PDF**: Tworzenie osobnego pliku PDF dla każdego wiersza w arkuszu.
-* **Formatowanie tekstu**: Każdy dokument posiada wyśrodkowany nagłówek oraz listę parametrów mieszkania.
-* **Obsługa polskich znaków**: Wykorzystanie systemowej czcionki Arial do poprawnego wyświetlania treści.
-* **Oczyszczanie danych**: Automatyczne usuwanie pustych kolumn ("Unnamed") z arkusza podczas przetwarzania.
-
-
-## Jak to działa
-
-1. Program szuka pliku o nazwie `Dane.xlsx` w swoim folderze.
-2. Odczytuje każdą kolumnę (np. Powierzchnia, Piętro, Liczba pokoi).
-3. Tworzy pliki o nazwach `Mieszkanie_1.pdf`, `Mieszkanie_2.pdf` itd.
-
-
-## Technologie
-
-Projekt wykorzystuje potężne biblioteki do obsługi danych i plików:
-* **Pandas**: Służy do odczytu i strukturyzowania danych z arkuszy kalkulacyjnych.
-* **fpdf2**: Biblioteka umożliwiająca generowanie dokumentów PDF w Pythonie.
-* **OS**: Zarządzanie ścieżkami plików i lokalizacją folderu roboczego.
-
-
-## Jak uruchomić
-
-- Wymagany Python 3.x.
-- Zainstaluj biblioteki: `pip install pandas fpdf2 openpyxl`.
-- Upewnij się, że plik `Dane.xlsx` znajduje się w tym samym folderze.
-- Uruchom plik główny:
-`GeneratorPDF.py`
-
-
-## Podgląd Wyjścia
-
-* **KARTA MIESZKANIA NR X**: Nagłówek dokumentu.
-* **Dane**: Wszystkie pary Kolumna: Wartość przeniesione prosto z Excela.
-
-
-
-
-# 5. Kalkulator Matematyczny (`Kalkulator.py`)
+# 4. Kalkulator Matematyczny (`Kalkulator.py`)
 
 Uproszczony kalkulator konsolowy stworzony w Pythonie. 
 Program pozwala na błyskawiczne obliczanie dowolnej liczby działań matematycznych bez konieczności deklarowania ich ilości na starcie.
@@ -182,37 +136,3 @@ W przeciwieństwie do poprzednich wersji, ten program nie wymaga podawania liczb
 36
 100/2
 50
-
-
-
-# 6. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
-
-Interaktywna aplikacja desktopowa zbudowana w języku Python, służąca do błyskawicznego porządkowania chaosu w folderach. Program automatycznie rozpoznaje typy plików i kategoryzuje je do odpowiednich podfolderów.
-
-##  Kluczowe Funkcje
-
-* **Inteligentna Segregacja**: Obsługa ponad 50 rozszerzeń plików podzielonych na kategorie (Obrazy, Dokumenty, Archiwa, Filmy, Muzyka, Instalki, Programowanie).
-* **Bezpieczeństwo Danych**: Mechanizm "Inne" – pliki o nierozpoznanych rozszerzeniach nie są ignorowane ani usuwane, lecz bezpiecznie przenoszone do osobnego folderu.
-* **Intuicyjne UI**: Nowoczesny interfejs typu Dashboard stworzony w bibliotece Tkinter, zapewniający płynną nawigację.
-* **Odporność na Błędy**: Implementacja bloków `try-except` zapobiega awariom programu w przypadku napotkania plików systemowych lub zablokowanych.
-
-## ️ Technologie
-
-* **Python 3.x**
-* **Tkinter**: Warstwa wizualna i interfejs użytkownika.
-* **OS & Shutil**: Zaawansowane operacje na systemie plików i strumieniach danych.
-
-##  Instrukcja Obsługi
-
-1.  Uruchom aplikację: `SegregatorzUI.py`.
-2.  Przejdź do sekcji **SPRZĄTACZ** w panelu bocznym.
-3.  Kliknij przycisk **WYBIERZ FOLDER**.
-4.  Wybierz folder (np. "Pobrane" lub "Pulpit") i zatwierdź.
-5.  Gotowe! Program w ułamku sekundy stworzy strukturę folderów i poukłada Twoje pliki.
-
-##  Struktura Projektu
-
-Aplikacja została napisana w paradygmacie **programowania obiektowego (OOP)**, co zapewnia łatwą rozbudowę (np. o nowe kategorie rozszerzeń lub statystyki zajętości dysku).
-
-
-*Projekt stworzony jako demonstracja umiejętności z zakresu automatyzacji procesów biznesowych i tworzenia aplikacji GUI.*
