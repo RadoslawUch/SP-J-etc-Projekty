@@ -4,16 +4,16 @@ Kompleksowy system narzędziowy zbudowany w Pythonie, który łączy lokalną ap
 
 ##  Funkcjonalności
 
-- ** Masowy Generator PDF**: Automatyczne tworzenie kart mieszkań na podstawie danych z pliku Excel (.xlsx). Obsługuje polskie znaki i generuje osobne pliki dla każdego wiersza.
-- ** Inteligentny Sprzątacz**: Automatyczne sortowanie plików w wybranym folderze do kategorii (Dokumenty, Obrazy, Inne).
-- ** System Raportowania API**: Aplikacja po każdym wykonanym zadaniu wysyła raport do serwera zewnętrznego przez protokół HTTP.
+- Masowy Generator PDF: Automatyczne tworzenie kart mieszkań na podstawie danych z pliku Excel (.xlsx). Obsługuje polskie znaki i generuje osobne pliki dla każdego wiersza.
+- Inteligentny Sprzątacz: Automatyczne sortowanie plików w wybranym folderze do kategorii (Dokumenty, Obrazy, Inne).
+- System Raportowania API: Aplikacja po każdym wykonanym zadaniu wysyła raport do serwera zewnętrznego przez protokół HTTP.
 
 ##  Technologie
 
-- **Język**: Python 3.x
-- **GUI**: Tkinter
-- **Backend/API**: FastAPI + Uvicorn
-- **Biblioteki**: Pandas, FPDF, Requests
+- Język: Python 3.x
+- GUI: Tkinter
+- Backend/API: FastAPI + Uvicorn
+- Biblioteki: Pandas, FPDF, Requests
 
 ##  Struktura Projektu
 
@@ -21,8 +21,9 @@ Kompleksowy system narzędziowy zbudowany w Pythonie, który łączy lokalną ap
 - `portfolio.py` - Frontend App (nadawca raportów i logika biznesowa).
 
 ##  Jak uruchomić:
-
-1. **KROK 1: Uruchom Serwer** Otwórz terminal i uruchom plik `serwer.py`. To on musi zacząć działać jako pierwszy, aby móc odbierać sygnały. Następnie uruchom `portfolio.py`.
+- Wymagany Python 3.x.
+- KROK 1: Uruchom plik `serwer.py`.
+- KROK 2: Uruchom plik `portfolio.py`.
 
 
 
