@@ -1,4 +1,32 @@
-# 1. System Pracowniczy (`RegLog.py`)
+# 1. System Automatyzacji Biurowej FastAPI (Client-Server)
+
+Kompleksowy system narzędziowy zbudowany w Pythonie, który łączy lokalną aplikację GUI z serwerem raportującym. Projekt demonstruje integrację technologii backendowych i frontendowych w celu automatyzacji powtarzalnych zadań biurowych.
+
+##  Funkcjonalności
+
+- ** Masowy Generator PDF**: Automatyczne tworzenie kart mieszkań na podstawie danych z pliku Excel (.xlsx). Obsługuje polskie znaki i generuje osobne pliki dla każdego wiersza.
+- ** Inteligentny Sprzątacz**: Automatyczne sortowanie plików w wybranym folderze do kategorii (Dokumenty, Obrazy, Inne).
+- ** System Raportowania API**: Aplikacja po każdym wykonanym zadaniu wysyła raport do serwera zewnętrznego przez protokół HTTP.
+
+##  Technologie
+
+- **Język**: Python 3.x
+- **GUI**: Tkinter
+- **Backend/API**: FastAPI + Uvicorn
+- **Biblioteki**: Pandas, FPDF, Requests
+
+##  Struktura Projektu
+
+- `serwer.py` - Backend API (odbiorca raportów).
+- `portfolio.py` - Frontend App (nadawca raportów i logika biznesowa).
+
+##  Jak uruchomić:
+
+1. **KROK 1: Uruchom Serwer** Otwórz terminal i uruchom plik `serwer.py`. To on musi zacząć działać jako pierwszy, aby móc odbierać sygnały. Następnie uruchom `portfolio.py`.
+
+
+
+# 2. System Pracowniczy (`RegLog.py`)
 
 Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy.
 
@@ -14,8 +42,7 @@ Prosta aplikacja GUI zbudowana w Pythonie, służąca do rejestracji czasu pracy
 
 
 
-
-# 2. Saper Pro ( `Saper.py`)
+# 3. Saper Pro ( `Saper.py`)
 
 Projekt klasycznej gry logicznej Saper, zaimplementowany w języku Python z wykorzystaniem biblioteki Tkinter. 
 Wersja ta zawiera zaawansowane mechanizmy poprawiające płynność rozgrywki i eliminujące błędy losowe.
@@ -67,8 +94,7 @@ Gra oferuje trzy predefiniowane tryby dostępne w menu górnym:
 
 
 
-
-# 3. Generator Kart Mieszkań ( `GeneratorPDF.py`)
+# 4. Generator Kart Mieszkań ( `GeneratorPDF.py`)
 
 Prosta aplikacja do automatycznego generowania dokumentów PDF na podstawie danych zawartych w arkuszu Excel. Skrypt idealnie nadaje się do szybkiego tworzenia ustandaryzowanych kart informacyjnych dla wielu obiektów jednocześnie.
 
@@ -114,7 +140,7 @@ Projekt wykorzystuje potężne biblioteki do obsługi danych i plików:
 
 
 
-# 4. Kalkulator Matematyczny (`Kalkulator.py`)
+# 5. Kalkulator Matematyczny (`Kalkulator.py`)
 
 Uproszczony kalkulator konsolowy stworzony w Pythonie. 
 Program pozwala na błyskawiczne obliczanie dowolnej liczby działań matematycznych bez konieczności deklarowania ich ilości na starcie.
@@ -158,7 +184,7 @@ W przeciwieństwie do poprzednich wersji, ten program nie wymaga podawania liczb
 
 
 
-# 5. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
+# 6. System Automatyzacji Desktopowej (`SegregatorzUI.py`)
 
 Interaktywna aplikacja desktopowa zbudowana w języku Python, służąca do błyskawicznego porządkowania chaosu w folderach. Program automatycznie rozpoznaje typy plików i kategoryzuje je do odpowiednich podfolderów.
 
